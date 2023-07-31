@@ -23,19 +23,19 @@ public class ProyectoFinDeCicloEDD {
             System.out.println("""
                                Bienvenido al sistema de Gestion de Contactos
                                --------  Menú Principal   -------
-                               .1.  Agregar un nuevo contacto: 
-                               .2.  Buscar contacto por su nombre: 
-                               .3.  Eliminar contacto: 
-                               .4.  Agregar un correo:
-                               .5.  Agregar una red social:
-                               .6.  Imprimir el arbol de contactos:
-                               .7.  Obtener el número de contactos:
-                               .8.  Obtener el número de contactos por niveles:
-                               .9.  Imprimir arbol de contactos en recorrido PreOrden:
-                               .10. Imprimir arbol en de contactos recorrido InOrden:
-                               .11. Imprimir arbol de contactos en recorrido PostOrden:
-                               .12. Imprimir arbol de contactos en recorrido por niveles:
-                               .13. Salir
+                               1.  Agregar un nuevo contacto: 
+                               2.  Buscar contacto por su nombre: 
+                               3.  Eliminar contacto: 
+                               4.  Agregar un correo:
+                               5.  Agregar una red social:
+                               6.  Imprimir el arbol de contactos:
+                               7.  Obtener el número de contactos:
+                               8.  Obtener el número de contactos por niveles:
+                               9.  Imprimir arbol de contactos en recorrido PreOrden:
+                               10. Imprimir arbol en de contactos recorrido InOrden:
+                               11. Imprimir arbol de contactos en recorrido PostOrden:
+                               12. Imprimir arbol de contactos en recorrido por niveles:
+                               13. Salir
                                     """);
 
             opcion = teclado.nextInt();
