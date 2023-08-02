@@ -2,7 +2,7 @@
 ## Proyecto Fin de Ciclo - Gestión de contactos telefónicos
 ### Descripción
 
-Este proyecto consiste en el desarrollo de un programa para gestionar una lista de contactos telefónicos utilizando un árbol binario de búsqueda. Cada contacto tiene un nombre, un número de teléfono, una colección de correos y un diccionario que almacena las redes sociales asociadas al contacto, donde la red social es la clave del diccionario y el valor es la URL del perfil (Ejemplo: {'"acebook": "link_facebook_profile"}).
+En este informe, se documentará cada una de las clases del proyecto de Gestión de Contactos Telefónicos. El objetivo del proyecto es desarrollar un programa que permita gestionar una lista de contactos telefónicos utilizando un árbol binario de búsqueda. Cada contacto tiene un nombre, un número de teléfono, una colección de correos y un diccionario que almacena las redes sociales asociadas al contacto.
 
 ## Funcionalidades del Programa
 
