@@ -14,7 +14,9 @@ public class Vista {
     private static Scanner scanner = new Scanner(System.in);
 
     public static int mostrarMenu() {
-        System.out.println("\nMenú:");
+  
+        System.out.println("\n ========Menú:========");
+        
         System.out.println("1. Agregar Contacto");
         System.out.println("2. Buscar Contacto");
         System.out.println("3. Eliminar Contacto");
@@ -33,15 +35,17 @@ public class Vista {
 
     public static String ingresarNombreContacto() {
         System.out.print("Ingrese el nombre del contacto: ");
-        scanner.nextLine(); // Consume la nueva línea después de leer un número.
+        scanner.nextLine(); 
+        
         return scanner.nextLine();
     }
 
-    public static String ingresarNumeroTelefono() {
+   
+
+   public static String ingresarNumeroTelefono() {
         System.out.print("Ingrese el número de teléfono: ");
         return scanner.nextLine();
     }
-
     public static String ingresarCorreo() {
         System.out.print("Ingrese el correo: ");
         return scanner.nextLine();
