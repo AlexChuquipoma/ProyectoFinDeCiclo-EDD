@@ -4,45 +4,25 @@
 
 En este informe, se documentará cada una de las clases del proyecto de Gestión de Contactos Telefónicos. El objetivo del proyecto es desarrollar un programa que permita gestionar una lista de contactos telefónicos utilizando un árbol binario de búsqueda. Cada contacto tiene un nombre, un número de teléfono, una colección de correos y un diccionario que almacena las redes sociales asociadas al contacto.
 
-## Funcionalidades del Programa
+## Documentación de cada una de las clases del proyecto
 
-El programa principal ofrece las siguientes funcionalidades:
+## Clase Contacto
 
-1. **Agregar Contacto**: Permite agregar un nuevo contacto proporcionando su nombre y número de teléfono.
+La clase `Contacto` representa un contacto con información básica como nombre, número de teléfono, lista de correos electrónicos y un mapa de redes sociales y sus respectivas URL.
 
-2. **Buscar Contacto**: Permite buscar un contacto por su nombre e imprimir todos sus atributos. Si el contacto no existe, se pregunta si se desea crear un nuevo contacto con el nombre ingresado.
+### Variables miembro
 
-3. **Eliminar Contacto**: Permite eliminar un contacto por su nombre. Si el contacto no existe, se muestra un mensaje indicando que no se encontró el contacto.
+- `nombre` (String): Almacena el nombre del contacto.
+- `numeroTelefono` (String): Almacena el número de teléfono del contacto.
+- `correos` (List<String>): Lista que contiene los correos electrónicos asociados al contacto.
+- `redesSociales` (Map<String, String>): Mapa que guarda las redes sociales del contacto y sus respectivas URL.
 
-4. **Agregar un correo**: Permite agregar un correo a la colección de correos asociados a un contacto, proporcionando el nombre del contacto y el correo.
+### Constructor
 
-5. **Agregar una red social**: Permite agregar una red social asociada a un contacto, proporcionando el nombre del contacto, la clave de la red social y su valor (URL). Si la clave de la red social ya existe, se actualizará la URL proporcionada.
+```java
+public Contacto(String nombre, String numeroTelefono)
 
-6. **Imprimir el árbol según el recorrido**: Permite imprimir los contactos en diferentes órdenes de recorrido: preorder, inorder, postorder y por amplitud.
 
-7. **Obtener el número de contactos totales (Peso del árbol)**: Muestra el número total de contactos presentes en el árbol.
-
-8. **Obtener el número de niveles del árbol**: Muestra el número de niveles del árbol.
-
-## Instrucciones de Uso
-
-1. Ejecutar el programa y seguir las instrucciones del menú para realizar las diferentes operaciones de gestión de contactos.
-
-2. Para agregar un nuevo contacto, seleccionar la opción "Agregar Contacto" e ingresar el nombre y el número de teléfono del contacto.
-
-3. Para buscar un contacto, seleccionar la opción "Buscar Contacto" e ingresar el nombre del contacto. Se mostrarán todos los atributos del contacto si se encuentra en la lista. Si no existe, se puede optar por agregar un nuevo contacto con ese nombre.
-
-4. Para eliminar un contacto, seleccionar la opción "Eliminar Contacto" e ingresar el nombre del contacto que se desea eliminar.
-
-5. Para agregar un correo a un contacto, seleccionar la opción "Agregar un correo", ingresar el nombre del contacto y el correo a agregar.
-
-6. Para agregar una red social a un contacto, seleccionar la opción "Agregar una red social", ingresar el nombre del contacto, la clave de la red social y la URL asociada. Si la clave ya existe, se actualizará la URL.
-
-7. Para imprimir los contactos en diferentes órdenes, seleccionar la opción "Imprimir el árbol según el recorrido" y elegir el tipo de recorrido deseado.
-
-8. Para obtener el número de contactos totales, seleccionar la opción "Obtener el número de contactos totales".
-
-9. Para obtener el número de niveles del árbol, seleccionar la opción "Obtener el número de niveles del árbol".
 
 ## Conclusiones
 
