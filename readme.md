@@ -32,6 +32,7 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `agregarRedSocial(String redSocial, String url)`: Agrega una red social al mapa de redes sociales del contacto.
 
 ## Clase Nodo
+### Variables miembro
 - `contacto` (Contacto): Almacena el objeto de la clase `Contacto` asociado al nodo.
 - `izquierdo` (Nodo): Referencia al nodo hijo izquierdo.
 - `derecho` (Nodo): Referencia al nodo hijo derecho.
@@ -78,6 +79,16 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `agregarRedSocial()`: Permite al usuario agregar una red social con su URL a un contacto existente.
 - `mostrarNumeroContactos()`: Muestra el número total de contactos almacenados en el árbol.
 - `mostrarNumeroNiveles()`: Muestra el número de niveles del árbol.
+
+##Clase Vista
+- `mostrarMenu() -> int`: Muestra el menú principal del programa y solicita al usuario que ingrese una opción. Devuelve el número de opción seleccionado por el usuario.
+- `ingresarNombreContacto() -> String`: Solicita al usuario que ingrese el nombre del contacto y devuelve el valor ingresado.
+- `ingresarNumeroTelefono() -> String`: Solicita al usuario que ingrese el número de teléfono del contacto y devuelve el valor ingresado.
+- `ingresarCorreo() -> String`: Solicita al usuario que ingrese un correo electrónico y devuelve el valor ingresado.
+- `ingresarRedSocial() -> String`: Solicita al usuario que ingrese una red social (clave) y devuelve el valor ingresado.
+- `ingresarURL() -> String`: Solicita al usuario que ingrese una URL y devuelve el valor ingresado.
+- `mostrarMensaje(String mensaje)`: Muestra un mensaje en la consola.
+- `ingresarOpcion(String mensaje) -> String`: Solicita al usuario que ingrese una opción (S/N) y devuelve el valor ingresado.
 
 ## Conclusiones
 
