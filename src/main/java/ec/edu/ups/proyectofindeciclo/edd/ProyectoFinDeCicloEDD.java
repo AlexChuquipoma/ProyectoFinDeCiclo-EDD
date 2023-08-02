@@ -17,7 +17,8 @@ public class ProyectoFinDeCicloEDD {
     public static void main(String[] args) {
         Controlador controlador = new Controlador();
         Vista vista = new Vista();
-        ArbolContactos arbolContactos = new ArbolContactos();
+       
+         ArbolContactos arbolContactos = new ArbolContactos();
         controlador.ejecutar();
     }
 }
