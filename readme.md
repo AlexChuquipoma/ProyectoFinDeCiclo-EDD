@@ -92,7 +92,7 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - 
    # Métodos para la gestión del árbol
   
-Método `agregarContacto(Contacto contacto)`
+## Método `agregarContacto(Contacto contacto)`
 public void agregarContacto(Contacto contacto)
 Este método se utiliza para agregar un nuevo contacto al árbol binario de búsqueda. Recibe un objeto de la clase `Contacto` como parámetro y utiliza un método auxiliar `agregarContactoRecursivo(Nodo nodo, Contacto contacto)` para realizar la inserción de forma recursiva en el árbol.
 
