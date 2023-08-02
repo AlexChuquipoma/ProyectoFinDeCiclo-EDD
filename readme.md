@@ -26,15 +26,24 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 ###  Métodos de modificación (setters)
 - `setNumeroTelefono`(String numeroTelefono): Establece el número de teléfono del contacto.
 - `setNombre`(String nombre): Establece el nombre del contacto.
-- 
+
 ### Métodos adicionales
 - `agregarCorreo`(String correo): Agrega un correo electrónico a la lista de correos del contacto.
 - `agregarRedSocial`(String redSocial, String url): Agrega una red social al mapa de redes sociales del contacto.
 
 ## Clase Nodo
-`contacto` (Contacto): Almacena el objeto de la clase Contacto asociado al nodo.
-`izquierdo` (Nodo): Referencia al nodo hijo izquierdo.
-`derecho` (Nodo): Referencia al nodo hijo derecho.
+- `contacto` (Contacto): Almacena el objeto de la clase `Contacto` asociado al nodo.
+- `izquierdo` (Nodo): Referencia al nodo hijo izquierdo.
+- `derecho` (Nodo): Referencia al nodo hijo derecho.
+
+### Métodos de acceso (getters)
+- `getContacto` () -> Contacto: Devuelve el objeto Contacto almacenado en el nodo.
+- `getIzquierdo` () -> Nodo: Devuelve el nodo hijo izquierdo.
+- `getDerecho` () -> Nodo: Devuelve el nodo hijo derecho.
+
+### Métodos de modificación (setters)
+- `setIzquierdo` (Nodo izquierdo): Establece el nodo hijo izquierdo del nodo actual.
+- `setDerecho` (Nodo derecho): Establece el nodo hijo derecho del nodo actual.
 
 ## Conclusiones
 
