@@ -6,6 +6,7 @@ package ec.edu.ups.proyectofindeciclo.edd.modelo;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 /**
  *
@@ -14,235 +15,211 @@ import java.util.Queue;
 public class ArbolContactos {
     private Nodo raiz;
 
-    public ArbolContactos(Nodo raiz) {
+    public ArbolContactos() {
         this.raiz = null;
     }
 
-    public ArbolContactos() {
+    public void agregarContacto(Contacto contacto) {
+        raiz = agregarContactoRecursivo(raiz, contacto);
     }
 
-    public void insertar(Contacto nuevoContacto) {
-        if (raiz == null) {
-            raiz = new Nodo(nuevoContacto);
-        } else {
-            insertarRecursivo(raiz, nuevoContacto);
-        }
-
-    }
-
-    private void insertarRecursivo(Nodo nodo, Contacto nuevoContacto) {
-        if (nuevoContacto.getNombre().compareTo(nodo.getContacto().getNombre()) < 0) {
-            if (nodo.getLeft() == null) {
-                nodo.setLeft(new Nodo(nuevoContacto));
-            } else {
-                insertarRecursivo(nodo.getLeft(), nuevoContacto);
-            }
-        } else if (nuevoContacto.getNombre().compareTo(nodo.getContacto().getNombre()) > 0) {
-            if (nodo.getRight() == null) {
-                nodo.setRight(new Nodo(nuevoContacto));
-            } else {
-                insertarRecursivo(nodo.getRight(), nuevoContacto);
-            }
-        } else {
-            //Si el nombre del contacto nuevo es igual a uno ya existente
-
-        }
-    }
-
-    public boolean estaEquilibrado() {
-        return verificarBalance(raiz);
-    }
-
-    private boolean verificarBalance(Nodo nodo) {
+    private Nodo agregarContactoRecursivo(Nodo nodo, Contacto contacto) {
         if (nodo == null) {
-            return true; //Si es arbol vacio considero equilibrado
+            return new Nodo(contacto);
         }
-        int alturaIzquierda = obtenerAltura(nodo.getLeft());
-        int alturaDerecha = obtenerAltura(nodo.getRight());
-        int diferencia = Math.abs(alturaIzquierda - alturaDerecha);
 
-        //verificamos la diferencia de las alturas
-        if (diferencia > 1) {
-            return false;
+        String nombreActual = nodo.getContacto().getNombre();
+        String nuevoNombre = contacto.getNombre();
+
+        if (nuevoNombre.compareTo(nombreActual) < 0) {
+            nodo.setIzquierdo(agregarContactoRecursivo(nodo.getIzquierdo(), contacto));
+        } else if (nuevoNombre.compareTo(nombreActual) > 0) {
+            nodo.setDerecho(agregarContactoRecursivo(nodo.getDerecho(), contacto));
+        } else {
+            System.out.println("El contacto ya existe. ¿Desea actualizar el número de teléfono? (S/N)");
+            Scanner scanner = new Scanner(System.in);
+            String opcion = scanner.nextLine().trim().toUpperCase();
+            if (opcion.equals("S")) {
+                nodo.getContacto().setNumeroTelefono(contacto.getNumeroTelefono());
+                System.out.println("Número de teléfono actualizado.");
+            } else {
+                System.out.println("Contacto existente no actualizado.");
+            }
         }
-        return verificarBalance(nodo.getLeft()) && verificarBalance(nodo.getRight());
+        return nodo;
     }
 
-    private int obtenerAltura(Nodo nodo) {
-        if (nodo == null) {
-            return 0;
-        }
-        int alturaIzquierda = obtenerAltura(nodo.getLeft());
-        int alturaDerecha = obtenerAltura(nodo.getRight());
+    public Contacto buscarContacto(String nombre) {
+        return buscarContactoRecursivo(raiz, nombre);
+    }
 
-        return Math.max(alturaIzquierda, alturaDerecha) + 1;
+    private Contacto buscarContactoRecursivo(Nodo nodo, String nombre) {
+        if (nodo == null) {
+            return null;
+        }
+
+        String nombreActual = nodo.getContacto().getNombre();
+
+        if (nombre.equals(nombreActual)) {
+            return nodo.getContacto();
+        } else if (nombre.compareTo(nombreActual) < 0) {
+            return buscarContactoRecursivo(nodo.getIzquierdo(), nombre);
+        } else {
+            return buscarContactoRecursivo(nodo.getDerecho(), nombre);
+        }
     }
 
     public void eliminarContacto(String nombre) {
         raiz = eliminarContactoRecursivo(raiz, nombre);
-
     }
 
-    public Nodo eliminarContactoRecursivo(Nodo nodo, String nombre) {
+    private Nodo eliminarContactoRecursivo(Nodo nodo, String nombre) {
         if (nodo == null) {
+            return null;
+        }
+
+        String nombreActual = nodo.getContacto().getNombre();
+
+        if (nombre.compareTo(nombreActual) < 0) {
+            nodo.setIzquierdo(eliminarContactoRecursivo(nodo.getIzquierdo(), nombre));
+        } else if (nombre.compareTo(nombreActual) > 0) {
+            nodo.setDerecho(eliminarContactoRecursivo(nodo.getDerecho(), nombre));
+        } else {
+            if (nodo.getIzquierdo() == null) {
+                return nodo.getDerecho();
+            } else if (nodo.getDerecho() == null) {
+                return nodo.getIzquierdo();
+            }
+
+            Nodo sucesor = encontrarSucesor(nodo.getDerecho());
+            nodo.getContacto().setNombre(sucesor.getContacto().getNombre());
+            nodo.getContacto().setNumeroTelefono(sucesor.getContacto().getNumeroTelefono());
+            nodo.setDerecho(eliminarContactoRecursivo(nodo.getDerecho(), sucesor.getContacto().getNombre()));
+        }
+
+        return nodo;
+    }
+
+    private Nodo encontrarSucesor(Nodo nodo) {
+        if (nodo.getIzquierdo() == null) {
             return nodo;
         }
-        //Buscamos el nodo a eliminar
-        if (nombre.compareTo(nodo.getContacto().getNombre()) < 0) {
-            //Si el nombre es menor, es decir si nombre del contacto esta en el subarbol izquierdo
-            nodo.setLeft(eliminarContactoRecursivo(nodo.getLeft(), nombre));
-        } else if (nombre.compareTo(nodo.getContacto().getNombre()) > 0) {
-            //Si el nombre es mayor, es decir si nombre del contacto esta en el subarbol derecho
-            nodo.setRight(eliminarContactoRecursivo(nodo.getRight(), nombre));
+        return encontrarSucesor(nodo.getIzquierdo());
+    }
+
+    public void agregarCorreo(String nombre, String correo) {
+        Nodo nodoContacto = buscarNodoContacto(raiz, nombre);
+        if (nodoContacto != null) {
+            nodoContacto.getContacto().agregarCorreo(correo);
+            System.out.println("Correo agregado correctamente.");
         } else {
-            //SI el nombre coincide, el nodo es el que deberias eliminar
-
-            //Caso1: que el nodo no tenga
-            if (nodo.getLeft() == null && nodo.getRight() == null) {
-
-            }
-            //Caso 2: que el nodo a eliminar tenga un solo hijo
-            if (nodo.getLeft() == null) {
-                return nodo.getRight();
-            } else if (nodo.getRight() == null) {
-                return nodo.getLeft();
-            }
-            //Caso 3: nodo con 2 hijos
-            Nodo sucesor = encontrarMinimo(nodo.getRight());
-            //Actualizamos el objeto contacto obtenido en [Encontrar minimo]
-            nodo.setContacto(sucesor.getContacto());
-            nodo.setRight(eliminarContactoRecursivo(nodo.getRight(), sucesor.getContacto().getNombre()));
-
-        }
-        return nodo;
-    }
-
-    private Nodo encontrarMinimo(Nodo nodo) {
-        while (nodo.getLeft() != null) {
-            nodo = nodo.getLeft();
-        }
-        return nodo;
-    }
-    public Contacto buscarContacto(String nombre) {
-    Nodo nodoEncontrado = buscarContactoRecursivo(raiz, nombre);
-    if (nodoEncontrado != null) {
-        return nodoEncontrado.getContacto();
-    }
-    return null; // Si el contacto no se encuentra, devolvemos null
-}
-
-public Nodo buscarContactoRecursivo(Nodo nodo, String nombre) {
-    if (nodo == null) {
-        return null;
-    }
-    // Buscamos el nodo con el nombre indicado
-    int comparacion = nombre.compareTo(nodo.getContacto().getNombre());
-    if (comparacion < 0) {
-        // Si el nombre es menor, está en el subárbol izquierdo
-        return buscarContactoRecursivo(nodo.getLeft(), nombre);
-    } else if (comparacion > 0) {
-        // Si el nombre es mayor, está en el subárbol derecho
-        return buscarContactoRecursivo(nodo.getRight(), nombre);
-    } else {
-        // Si el nombre coincide, hemos encontrado el contacto
-        return nodo;
-    }
-}
-
-    public void printTreeNode(Nodo raiz, String prefix, boolean isLeft) {
-        if (raiz != null) {
-            System.out.println(prefix + (isLeft ? "|--" : "|--") + raiz.getContacto());
-            printTreeNode(raiz.getLeft(), prefix + (isLeft ? "| " : "  "), true);
-            printTreeNode(raiz.getRight(), prefix + (isLeft ? "| " : "  "), false);
-
+            System.out.println("Contacto no encontrado.");
         }
     }
-    
-    //Imprimir el arbol en PostOrden
-    //Funcionamiento: se visitan los hijos de un nodo antes de visitar el nodo actual.
-    //El orden de visita es: subarbol izquierdo, subarbol derecho y nodo actual.
-    public void postOrderRecursivo(Nodo nodo) {
+
+    public void agregarRedSocial(String nombre, String redSocial, String url) {
+        Nodo nodoContacto = buscarNodoContacto(raiz, nombre);
+        if (nodoContacto != null) {
+            nodoContacto.getContacto().agregarRedSocial(redSocial, url);
+            System.out.println("Red social agregada correctamente.");
+        } else {
+            System.out.println("Contacto no encontrado.");
+        }
+    }
+
+    private Nodo buscarNodoContacto(Nodo nodo, String nombre) {
+        if (nodo == null) {
+            return null;
+        }
+
+        String nombreActual = nodo.getContacto().getNombre();
+
+        if (nombre.equals(nombreActual)) {
+            return nodo;
+        } else if (nombre.compareTo(nombreActual) < 0) {
+            return buscarNodoContacto(nodo.getIzquierdo(), nombre);
+        } else {
+            return buscarNodoContacto(nodo.getDerecho(), nombre);
+        }
+    }
+
+    public void imprimirPreorder() {
+        System.out.println("Árbol en Preorder:");
+        imprimirPreorderRecursivo(raiz);
+    }
+
+    private void imprimirPreorderRecursivo(Nodo nodo) {
         if (nodo != null) {
-
-            inOrderRecursivo(nodo.getLeft());
-            inOrderRecursivo(nodo.getRight());
-            System.out.println(nodo.getContacto() + " - ");
-
+            System.out.println(nodo.getContacto());
+            imprimirPreorderRecursivo(nodo.getIzquierdo());
+            imprimirPreorderRecursivo(nodo.getDerecho());
         }
-
     }
-    //Imprimir el arbol en PreOrden
-    //Funcionamiento: se visita el nodo actual antes de visitar sus hijos. 
-    //Generalmente el recorrido comienza en el nodo raiz.
-    //El orden de visita es: nodo actual, subárbol izquierdo y subárbol derecho.
-    public void preOrderRecursivo(Nodo nodo) {
+
+    public void imprimirInorder() {
+        System.out.println("Árbol en Inorder:");
+        imprimirInorderRecursivo(raiz);
+    }
+
+    private void imprimirInorderRecursivo(Nodo nodo) {
         if (nodo != null) {
-            System.out.println(nodo.getContacto() + " - ");
-            inOrderRecursivo(nodo.getLeft());
-            inOrderRecursivo(nodo.getRight());
+            imprimirInorderRecursivo(nodo.getIzquierdo());
+            System.out.println(nodo.getContacto());
+            imprimirInorderRecursivo(nodo.getDerecho());
         }
-
     }
-    //Imprimir el arbol en InOrder
-    //Funcionamiento: este recorrido nos sirve para obtener los nodos del 
-    //arbol en orden ascendente
-    public void inOrderRecursivo(Nodo nodo) {
+
+    public void imprimirPostorder() {
+        System.out.println("Árbol en Postorder:");
+        imprimirPostorderRecursivo(raiz);
+    }
+
+    private void imprimirPostorderRecursivo(Nodo nodo) {
         if (nodo != null) {
-            inOrderRecursivo(nodo.getLeft());
-            System.out.println(nodo.getContacto() + " - ");
-            inOrderRecursivo(nodo.getRight());
+            imprimirPostorderRecursivo(nodo.getIzquierdo());
+            imprimirPostorderRecursivo(nodo.getDerecho());
+            System.out.println(nodo.getContacto());
         }
+    }
 
-    }
-    //Imprimir Arbol por niveles
-    //Funcionamiento: comienza en la raiz  y visita los nodos de los siguientes
-    //niveles
-    public void imprimirPorNiveles() {
-        if (raiz == null) {
-            return;
-        }
-        Queue<Nodo> queue = new LinkedList<>();
-        queue.add(raiz);
-        while (!queue.isEmpty()) {
-            Nodo nodoActual = queue.poll();
-            System.out.println(nodoActual.getContacto());
-            if (nodoActual.getLeft() != null) {
-                queue.add(nodoActual.getLeft());
+    public void imprimirAnchura() {
+        System.out.println("Árbol en Anchura:");
+        Queue<Nodo> cola = new LinkedList<>();
+        cola.add(raiz);
+
+        while (!cola.isEmpty()) {
+            Nodo nodo = cola.poll();
+            System.out.println(nodo.getContacto());
+
+            if (nodo.getIzquierdo() != null) {
+                cola.add(nodo.getIzquierdo());
             }
-            if (nodoActual.getRight() != null) {
-                queue.add(nodoActual.getRight());
+
+            if (nodo.getDerecho() != null) {
+                cola.add(nodo.getDerecho());
             }
         }
     }
+
     public int obtenerNumeroContactos() {
         return obtenerNumeroContactosRecursivo(raiz);
     }
 
-    private int obtenerNumeroContactosRecursivo(Nodo nodoActual) {
-        if (nodoActual == null) {
+    private int obtenerNumeroContactosRecursivo(Nodo nodo) {
+        if (nodo == null) {
             return 0;
         }
-        return 1 + obtenerNumeroContactosRecursivo(nodoActual.getLeft()) + obtenerNumeroContactosRecursivo(nodoActual.getRight());
+        return 1 + obtenerNumeroContactosRecursivo(nodo.getIzquierdo()) + obtenerNumeroContactosRecursivo(nodo.getDerecho());
     }
 
     public int obtenerNumeroNiveles() {
         return obtenerNumeroNivelesRecursivo(raiz);
     }
 
-    private int obtenerNumeroNivelesRecursivo(Nodo nodoActual) {
-        if (nodoActual == null) {
+    private int obtenerNumeroNivelesRecursivo(Nodo nodo) {
+        if (nodo == null) {
             return 0;
         }
-        return 1 + Math.max(obtenerNumeroNivelesRecursivo(nodoActual.getLeft()), obtenerNumeroNivelesRecursivo(nodoActual.getRight()));
+        return 1 + Math.max(obtenerNumeroNivelesRecursivo(nodo.getIzquierdo()), obtenerNumeroNivelesRecursivo(nodo.getDerecho()));
     }
-
-
-    public Nodo getRaiz() {
-        return raiz;
-    }
-
-    public void setRaiz(Nodo raiz) {
-        this.raiz = raiz;
-    }
-    
 }

@@ -10,46 +10,32 @@ package ec.edu.ups.proyectofindeciclo.edd.modelo;
  */
 public class Nodo {
     private Contacto contacto;
-    private Nodo left;
-    private Nodo right;
+    private Nodo izquierdo;
+    private Nodo derecho;
 
     public Nodo(Contacto contacto) {
         this.contacto = contacto;
-        left = null;
-        right = null;
-        
+        this.izquierdo = null;
+        this.derecho = null;
     }
 
     public Contacto getContacto() {
         return contacto;
     }
 
-    public void setContacto(Contacto contacto) {
-        this.contacto = contacto;
+    public Nodo getIzquierdo() {
+        return izquierdo;
     }
 
-    public Nodo getLeft() {
-        return left;
+    public void setIzquierdo(Nodo izquierdo) {
+        this.izquierdo = izquierdo;
     }
 
-    public void setLeft(Nodo left) {
-        this.left = left;
+    public Nodo getDerecho() {
+        return derecho;
     }
 
-    public Nodo getRight() {
-        return right;
+    public void setDerecho(Nodo derecho) {
+        this.derecho = derecho;
     }
-
-    public void setRight(Nodo right) {
-        this.right = right;
-    }
-
-    @Override
-    public String toString() {
-        return "Nodo{" + "contacto=" + contacto + ", left=" + left + ", right=" + right + '}';
-    }
-    
-    
-    
-    
 }

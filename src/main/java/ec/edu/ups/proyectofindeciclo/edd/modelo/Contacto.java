@@ -6,24 +6,42 @@ package ec.edu.ups.proyectofindeciclo.edd.modelo;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author alexr
  */
 public class Contacto {
-
     private String nombre;
-    private String numero;
-    LinkedList<String> correos;
-    HashMap<String, String> redesSociales;
+    private String numeroTelefono;
+    private List<String> correos;
+    private Map<String, String> redesSociales;
 
-    public Contacto(String nombre, String numero) {
+    public Contacto(String nombre, String numeroTelefono) {
         this.nombre = nombre;
-        this.numero = numero;
+        this.numeroTelefono = numeroTelefono;
         this.correos = new LinkedList<>();
         this.redesSociales = new HashMap<>();
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public List<String> getCorreos() {
+        return correos;
+    }
+
+    public Map<String, String> getRedesSociales() {
+        return redesSociales;
+    }
+
     public void agregarCorreo(String correo) {
         correos.add(correo);
     }
@@ -31,32 +49,25 @@ public class Contacto {
     public void agregarRedSocial(String redSocial, String url) {
         redesSociales.put(redSocial, url);
     }
-
     
-
-    public Contacto() {
-    }
-    
-    
-
-    public String getNombre() {
-        return nombre;
+     void setNumeroTelefono(String numeroTelefono) {
+       this.numeroTelefono = numeroTelefono;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    void setNombre(String nombre) {
+       this.nombre = nombre;
     }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    @Override
+   @Override
     public String toString() {
-        return "Contacto{" + "nombre=" + nombre + ", numero=" + numero + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre: ").append(nombre).append("\n");
+        sb.append("Teléfono: ").append(numeroTelefono).append("\n");
+        sb.append("Correos: ").append(correos).append("\n");
+        sb.append("Redes Sociales: ").append(redesSociales).append("\n");
+        return sb.toString();
     }
+
+   
 }
+
