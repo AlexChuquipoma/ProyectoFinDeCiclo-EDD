@@ -69,6 +69,7 @@ public class Controlador {
     }
 
     private void agregarContacto() {
+        
         String nombre = Vista.ingresarNombreContacto();
         String numeroTelefono = Vista.ingresarNumeroTelefono();
         Contacto nuevoContacto = new Contacto(nombre, numeroTelefono);
@@ -82,7 +83,8 @@ public class Controlador {
         if (contactoEncontrado != null) {
             Vista.mostrarMensaje("Contacto encontrado:\n" + contactoEncontrado);
         } else {
-            Vista.mostrarMensaje("Contacto no encontrado.");
+           
+             Vista.mostrarMensaje("Contacto no encontrado.");
             String opcionAgregar = Vista.ingresarOpcion("¿Desea agregar un nuevo contacto con ese nombre? (S/N): ");
             if (opcionAgregar.equalsIgnoreCase("S")) {
                 String numeroTelefono = Vista.ingresarNumeroTelefono();
@@ -113,6 +115,7 @@ public class Controlador {
     }
 
     private void mostrarNumeroContactos() {
+        
         int numeroContactos = arbol.obtenerNumeroContactos();
         Vista.mostrarMensaje("Número de contactos: " + numeroContactos);
     }
