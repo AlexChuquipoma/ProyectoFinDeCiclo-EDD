@@ -92,7 +92,7 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 
 # Métodos para la gestión del árbol
   
-## Método `agregarContacto(Contacto contacto)`
+### Método `agregarContacto(Contacto contacto)`
 public void agregarContacto(Contacto contacto)
 Este método se utiliza para agregar un nuevo contacto al árbol binario de búsqueda. Recibe un objeto de la clase `Contacto` como parámetro y utiliza un método auxiliar `agregarContactoRecursivo(Nodo nodo, Contacto contacto)` para realizar la inserción de forma recursiva en el árbol.
 
@@ -100,12 +100,12 @@ El método `agregarContactoRecursivo(Nodo nodo, Contacto contacto)` se encarga d
 
 Si el contacto a agregar ya existe en el árbol, se muestra un mensaje preguntando si se desea actualizar el número de teléfono. En caso afirmativo, el número de teléfono del contacto existente se actualiza con el número de teléfono del contacto a agregar.
 
-  ## Método buscarContacto(String nombre)
+### Método buscarContacto(String nombre)
 Este método permite buscar un contacto en el árbol binario de búsqueda por su nombre. Recibe el nombre del contacto como parámetro y utiliza un método auxiliar `buscarContactoRecursivo(Nodo nodo, String nombre)` para realizar la búsqueda de forma recursiva en el árbol.
 
 El método `buscarContactoRecursivo(Nodo nodo, String nombre)` compara el nombre buscado con el nombre contenido en el nodo actual. Si son iguales, se devuelve el contacto almacenado en ese nodo. Si el nombre buscado es menor, el método se invoca recursivamente en el nodo hijo izquierdo, y si es mayor, se invoca recursivamente en el nodo hijo derecho. Si el contacto no se encuentra en el árbol, se devuelve null.
 
-##  Método eliminarContacto(String nombre)
+###  Método eliminarContacto(String nombre)
 Este método se utiliza para eliminar un contacto del árbol binario de búsqueda por su nombre. Recibe el nombre del contacto a eliminar como parámetro y utiliza un método auxiliar `eliminarContactoRecursivo(Nodo nodo, String nombre)` para realizar la eliminación de forma recursiva en el árbol.
 
 El método `eliminarContactoRecursivo(Nodo nodo, String nombre)` busca el contacto a eliminar en el árbol de manera similar al método de búsqueda. Una vez encontrado el nodo con el contacto a eliminar, se toman diferentes acciones dependiendo de si el nodo tiene hijos o no:
@@ -114,7 +114,7 @@ Si el nodo no tiene hijos, se elimina directamente.
 Si el nodo tiene un hijo (izquierdo o derecho), se reemplaza el nodo por su hijo.
 Si el nodo tiene dos hijos, se encuentra el sucesor inmediato del nodo (el nodo más pequeño en el subárbol derecho) y se reemplaza el nodo por este sucesor. Luego, se elimina el sucesor del subárbol derecho.
 
-## Métodos auxiliares para recorridos e impresión
+### Métodos auxiliares para recorridos e impresión
 La clase "ArbolContactos" también implementa métodos para realizar recorridos e impresión del árbol:
 
 - ` imprimirPreorder()`, `imprimirInorder()`, `imprimirPostorder()`: Estos métodos imprimen los contactos del árbol en los recorridos Preorder, Inorder y Postorder, respectivamente. Utilizan métodos auxiliares recursivos para realizar los recorridos en el árbol.
