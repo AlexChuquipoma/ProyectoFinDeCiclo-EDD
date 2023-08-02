@@ -17,24 +17,6 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `correos` (List<String>): Lista que contiene los correos electrónicos asociados al contacto.
 - `redesSociales` (Map<String, String>): Mapa que guarda las redes sociales del contacto y sus respectivas URL.
 
-### Constructor
-
-```java
-public Contacto(String nombre, String numeroTelefono)
-
-Métodos de acceso (getters)
-getNombre() -> String: Devuelve el nombre del contacto.
-getNumeroTelefono() -> String: Devuelve el número de teléfono del contacto.
-getCorreos() -> List<String>: Devuelve la lista de correos electrónicos del contacto.
-getRedesSociales() -> Map<String, String>: Devuelve el mapa de redes sociales del contacto.
-Métodos de modificación (setters)
-setNumeroTelefono(String numeroTelefono): Establece el número de teléfono del contacto.
-setNombre(String nombre): Establece el nombre del contacto.
-Métodos adicionales
-agregarCorreo(String correo): Agrega un correo electrónico a la lista de correos del contacto.
-agregarRedSocial(String redSocial, String url): Agrega una red social al mapa de redes sociales del contacto.
-
-
 
 ## Conclusiones
 
