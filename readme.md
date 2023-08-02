@@ -89,8 +89,8 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `ingresarURL() -> String`: Solicita al usuario que ingrese una URL y devuelve el valor ingresado.
 - `mostrarMensaje(String mensaje)`: Muestra un mensaje en la consola.
 - `ingresarOpcion(String mensaje) -> String`: Solicita al usuario que ingrese una opción (S/N) y devuelve el valor ingresado.
-- 
-   # Métodos para la gestión del árbol
+
+# Métodos para la gestión del árbol
   
 ## Método `agregarContacto(Contacto contacto)`
 public void agregarContacto(Contacto contacto)
