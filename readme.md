@@ -67,7 +67,7 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `imprimirPostorder()`: Imprime los contactos del árbol en recorrido Postorder.
 - `imprimirAnchura()`: Imprime los contactos del árbol en recorrido por niveles (Anchura).
 
-### Clase Controlador
+## Clase Controlador
 ### Variables miembro
 - `arbol`(ArbolContactos): Representa el árbol binario de búsqueda utilizado para almacenar los contactos.
 
@@ -80,7 +80,7 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `mostrarNumeroContactos()`: Muestra el número total de contactos almacenados en el árbol.
 - `mostrarNumeroNiveles()`: Muestra el número de niveles del árbol.
 
-##Clase Vista
+## Clase Vista
 - `mostrarMenu() -> int`: Muestra el menú principal del programa y solicita al usuario que ingrese una opción. Devuelve el número de opción seleccionado por el usuario.
 - `ingresarNombreContacto() -> String`: Solicita al usuario que ingrese el nombre del contacto y devuelve el valor ingresado.
 - `ingresarNumeroTelefono() -> String`: Solicita al usuario que ingrese el número de teléfono del contacto y devuelve el valor ingresado.
