@@ -37,9 +37,9 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `derecho` (Nodo): Referencia al nodo hijo derecho.
 
 ### Métodos de acceso (getters)
-- `getContacto` () -> Contacto: Devuelve el objeto Contacto almacenado en el nodo.
-- `getIzquierdo` () -> Nodo: Devuelve el nodo hijo izquierdo.
-- `getDerecho` () -> Nodo: Devuelve el nodo hijo derecho.
+- `getContacto () -> Contacto`: Devuelve el objeto Contacto almacenado en el nodo.
+- `getIzquierdo () -> Nodo`: Devuelve el nodo hijo izquierdo.
+- `getDerecho () -> Nodo`: Devuelve el nodo hijo derecho.
 
 ### Métodos de modificación (setters)
 - `setIzquierdo` (Nodo izquierdo): Establece el nodo hijo izquierdo del nodo actual.
