@@ -31,6 +31,10 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `agregarCorreo`(String correo): Agrega un correo electrónico a la lista de correos del contacto.
 - `agregarRedSocial`(String redSocial, String url): Agrega una red social al mapa de redes sociales del contacto.
 
+## Clase Nodo
+`contacto` (Contacto): Almacena el objeto de la clase Contacto asociado al nodo.
+`izquierdo` (Nodo): Referencia al nodo hijo izquierdo.
+`derecho` (Nodo): Referencia al nodo hijo derecho.
 
 ## Conclusiones
 
