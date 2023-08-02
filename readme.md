@@ -66,6 +66,19 @@ La clase `Contacto` representa un contacto con información básica como nombre,
 - `imprimirPostorder()`: Imprime los contactos del árbol en recorrido Postorder.
 - `imprimirAnchura()`: Imprime los contactos del árbol en recorrido por niveles (Anchura).
 
+### Clase Controlador
+### Variables miembro
+- `arbol`(ArbolContactos): Representa el árbol binario de búsqueda utilizado para almacenar los contactos.
+
+### Métodos privados
+- `agregarContacto()`: Permite al usuario ingresar un nuevo contacto y lo agrega al árbol de contactos.
+- `buscarContacto()`: Permite al usuario buscar un contacto por su nombre. Si el contacto no existe, se ofrece la opción de agregarlo.
+- `eliminarContacto()`: Permite al usuario eliminar un contacto por su nombre.
+- `agregarCorreo()`: Permite al usuario agregar un correo electrónico a un contacto existente.
+- `agregarRedSocial()`: Permite al usuario agregar una red social con su URL a un contacto existente.
+- `mostrarNumeroContactos()`: Muestra el número total de contactos almacenados en el árbol.
+- `mostrarNumeroNiveles()`: Muestra el número de niveles del árbol.
+
 ## Conclusiones
 
 El programa de gestión de contactos telefónicos desarrollado utilizando un árbol binario de búsqueda proporciona una solución eficiente y ordenada para la gestión de contactos. La estructura del árbol binario permite mantener los contactos ordenados por nombre y facilita las operaciones de búsqueda, inserción y eliminación. Además, se han incluido funcionalidades adicionales para agregar correos y redes sociales asociadas a cada contacto, lo que mejora la capacidad de almacenar información relevante para cada contacto.
