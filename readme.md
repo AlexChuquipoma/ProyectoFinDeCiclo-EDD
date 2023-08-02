@@ -1,6 +1,6 @@
-# Proyecto Fin de Ciclo - Gestión de contactos telefónicos
-
-## Descripción
+# Universidad Politécnica Salesiana
+## Proyecto Fin de Ciclo - Gestión de contactos telefónicos
+### Descripción
 
 Este proyecto consiste en el desarrollo de un programa para gestionar una lista de contactos telefónicos utilizando un árbol binario de búsqueda. Cada contacto tiene un nombre, un número de teléfono, una colección de correos y un diccionario que almacena las redes sociales asociadas al contacto, donde la red social es la clave del diccionario y el valor es la URL del perfil (Ejemplo: {'"acebook": "link_facebook_profile"}).
 
