@@ -62,7 +62,7 @@ public class Contacto {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Nombre: ").append(nombre).append("\n");
-        sb.append("Teléfono: ").append(numeroTelefono).append("\n");
+        sb.append("Telefono: ").append(numeroTelefono).append("\n");
         sb.append("Correos: ").append(correos).append("\n");
         sb.append("Redes Sociales: ").append(redesSociales).append("\n");
         return sb.toString();

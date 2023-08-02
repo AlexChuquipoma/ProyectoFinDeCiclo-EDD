@@ -41,7 +41,7 @@ public class ArbolContactos {
             String opcion = scanner.nextLine().trim().toUpperCase();
             if (opcion.equals("S")) {
                 nodo.getContacto().setNumeroTelefono(contacto.getNumeroTelefono());
-                System.out.println("Número de teléfono actualizado.");
+                System.out.println("Número de telefono actualizado.");
             } else {
                 System.out.println("Contacto existente no actualizado.");
             }

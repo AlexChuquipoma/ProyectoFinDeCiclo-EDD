@@ -9,6 +9,7 @@ package ec.edu.ups.proyectofindeciclo.edd.modelo;
  * @author alexr
  */
 public class Nodo {
+    
     private Contacto contacto;
     private Nodo izquierdo;
     private Nodo derecho;
