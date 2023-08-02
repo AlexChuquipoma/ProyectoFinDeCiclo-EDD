@@ -49,5 +49,3 @@ El programa principal ofrece las siguientes funcionalidades:
 El programa de gestión de contactos telefónicos desarrollado utilizando un árbol binario de búsqueda proporciona una solución eficiente y ordenada para la gestión de contactos. La estructura del árbol binario permite mantener los contactos ordenados por nombre y facilita las operaciones de búsqueda, inserción y eliminación. Además, se han incluido funcionalidades adicionales para agregar correos y redes sociales asociadas a cada contacto, lo que mejora la capacidad de almacenar información relevante para cada contacto.
 
 Con este programa, los usuarios pueden gestionar de manera efectiva su lista de contactos telefónicos y realizar diversas operaciones de búsqueda y actualización de información. El uso de un menú de opciones simplifica la interacción con el programa y hace que sea fácil de usar para cualquier usuario.
-
-El código fuente del programa se encuentra disponible en este repositorio de GitHub [enlace-a-tu-repositorio]. Siéntase libre de utilizar, modificar y compartir este programa según sus necesidades.
